@@ -123,6 +123,27 @@ const createTask = async (task) => {
     return jsonData;
 }
 
+const createSession = async (session) => {
+
+    const configOpt = {
+        method: 'POST',
+        headers: {
+        'Authorization': localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            project: `${session.projectID}`
+        }) 
+    };
+
+    const rawData = await fetch(`${DEV_API_URI_BASE}/sessions`, configOpt)
+    const jsonData = await rawData.json();
+
+    return jsonData;
+
+}
+
 const deleteProject = async (id) => {
     console.log(id)
 
@@ -169,8 +190,24 @@ const getTasks = async () => {
     const data = res.json();
 
     return data;
+}
 
-  
+const getSessions = async () => {
+
+    const configOpt = {
+        method: 'GET',
+        headers: {
+        'Authorization': localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+    };
+
+
+    const res = await fetch(`${DEV_API_URI_BASE}/sessions`, configOpt);
+    const data = res.json();
+
+    return data;
 }
 
 export default {
@@ -183,5 +220,7 @@ export default {
     deleteProject,
     getProject,
     createTask,
-    getTasks
+    getTasks,
+    createSession,
+    getSessions
 }
