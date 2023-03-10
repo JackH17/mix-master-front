@@ -11,6 +11,8 @@ const Projects = ({currentUserProjects, myProjects, handleDeleteProject}) => {
         handleDeleteProject(e.target.value)
     }
 
+    console.log('new change')
+
 
     return (
         <div>
