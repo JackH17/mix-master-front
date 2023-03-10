@@ -10,9 +10,10 @@ const Projects = ({currentUserProjects, myProjects, handleDeleteProject}) => {
     const handleDeleteClick = (e) => {
         handleDeleteProject(e.target.value)
     }
-
+    console.log('another test pr check it now this is good')
 
     return (
+
         <div>
             <Container> 
             {
