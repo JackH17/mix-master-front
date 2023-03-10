@@ -11,6 +11,7 @@ const Projects = ({currentUserProjects, myProjects, handleDeleteProject}) => {
         handleDeleteProject(e.target.value)
     }
 
+    console.log('this is a different comment')
 
     return (
         <div>
